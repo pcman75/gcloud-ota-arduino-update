@@ -6,7 +6,8 @@ const { BigQuery } = require( '@google-cloud/bigquery' )
 const BQ_DATASET = 'ota'
 const BQ_TABLE = 'firmwares'
 const TABLE_SCHEMA = 'id:string, eventType: string, bucket:string, version:string, fullname:string, filename:string, variant:string, createdAt:timestamp'
-const projectId = process.env.GCLOUD_PROJECT
+//const projectId = process.env.GCLOUD_PROJECT
+const projectId = 'temperature-logger-ota'
 
 const bqClient = new BigQuery( { projectId } )
 const storage = new Storage()
