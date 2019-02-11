@@ -6,7 +6,7 @@ const { BigQuery } = require( '@google-cloud/bigquery' )
 const BQ_DATASET = 'ota'
 const BQ_TABLE = 'firmwares'
 const TABLE_SCHEMA = 'id:string, eventType: string, bucket:string, version:string, fullname:string, filename:string, variant:string, createdAt:timestamp'
-//const projectId = process.env.GCLOUD_PROJECT
+const projectId = process.env.GCLOUD_PROJECT
 const projectId = 'temperature-logger-ota'
 
 const bqClient = new BigQuery( { projectId } )
@@ -99,7 +99,7 @@ exports.getDownloadUrl = async ( req, res ) => {
           fullname,
           version,
           createdAt
-        FROM \`gcloud-ota-update.ota.firmwares\`
+        FROM \`temperature-logger-ota.ota.firmwares\`
         where variant = @variant
         order by createdAt desc
         limit 1      
